@@ -24,6 +24,8 @@ def rounded_rectangle(draw, x,y, w, h, corner_radius, fill=None, outline=None):
     draw.pieslice([x, h - corner_radius * 2, x + corner_radius * 2, h], 90, 180, fill, outline)
     draw.pieslice([w - corner_radius * 2, y, w, y + corner_radius * 2], 270, 360, fill, outline)
 
+path = 'unified-bgrt/images/progress'
+os.makedirs(path, exist_ok=True)
 
 for i in range(0,128):
     im = Image.new('RGBA', size, transparent)

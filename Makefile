@@ -12,10 +12,8 @@ clean:
 
 uninstall:
 	rm -rf /usr/share/plymouth/themes/unified-bgrt
-	kpackagetool5 -r "UnifiedSplash"
+	plymouth-set-default-theme --reset
 
 install:	
 	cp -r ./unified-bgrt /usr/share/plymouth/themes/
-	update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/unified-bgrt/unified-bgrt.plymouth 10
-	update-alternatives --set default.plymouth /usr/share/plymouth/themes/unified-bgrt/unified-bgrt.plymouth
-	update-initramfs -u -k all
+	plymouth-set-default-theme --rebuild-initrd unified-bgrt
